@@ -66,6 +66,47 @@ This guide outlines the major steps taken to complete the migration.
     ```bash
     # Connect to the target database (replace endpoint)
     psql --host=YOUR_POSTGRESQL_ENDPOINT --port=5432 --username=postgres --password --dbname=postgres
+    # AWS Database Migration: MySQL to PostgreSQL
+
+...(Keep your Overview and Architecture sections)...
+
+---
+
+## Phase 1: Infrastructure Provisioning
+
+In this phase, the core AWS resources were created and configured.
+* **VPC:** A custom VPC (`DMSPVC-vpc`) was created...
+* **RDS Databases:** Launched a MySQL source and PostgreSQL target instance, ensuring both were in the same VPC...
+* **EC2 Client:** Launched an EC2 instance into a public subnet...
+* **Security Groups:** Configured inbound rules for SSH (port 22), MySQL (3306), and PostgreSQL (5432)...
+
+---
+
+## Phase 2: Source Database Population
+
+This phase involved preparing the source database with sample data.
+1.  Connected to the EC2 instance via SSH.
+    ```bash
+    ssh -i "key.pem" ec2-user@xx.xx.xx.xx
+    ```
+2.  Installed required tools (`git`, `mariadb`, `postgresql`).
+3.  Cloned the AWS sample database repository.
+    ```bash
+    git clone ...
+    ```
+4.  Executed the `install-rds.sql` script to create and populate the `dms_sample` schema.
+
+---
+
+## Phase 3: Schema Conversion (SCT)
+
+...(Explain the SCT steps: installing drivers, creating the project, converting the schema, and applying it to the target database)...
+
+---
+
+## Phase 4: Data Migration (DMS) & Verification
+
+...(Explain the DMS steps: creating endpoints, the replication instance, and the final migration task. Then, show the `psql` command and the final `SELECT` query that verified the data was moved successfully)...
     ```
 2.  Ran a final query to confirm that the data was successfully migrated.
     ```sql
