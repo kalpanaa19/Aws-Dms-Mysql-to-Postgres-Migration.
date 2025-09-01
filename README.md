@@ -68,8 +68,6 @@ This guide outlines the major steps taken to complete the migration.
     psql --host=YOUR_POSTGRESQL_ENDPOINT --port=5432 --username=postgres --password --dbname=postgres
     # AWS Database Migration: MySQL to PostgreSQL
 
-...(Keep your Overview and Architecture sections)...
-
 ---
 
 ## Phase 1: Infrastructure Provisioning
@@ -100,13 +98,13 @@ This phase involved preparing the source database with sample data.
 
 ## Phase 3: Schema Conversion (SCT)
 
-...(Explain the SCT steps: installing drivers, creating the project, converting the schema, and applying it to the target database)...
+...(Ethe SCT steps: installing drivers, creating the project, converting the schema, and applying it to the target database)...
 
 ---
 
 ## Phase 4: Data Migration (DMS) & Verification
 
-...(Explain the DMS steps: creating endpoints, the replication instance, and the final migration task. Then, show the `psql` command and the final `SELECT` query that verified the data was moved successfully)...
+...( the DMS steps: creating endpoints, the replication instance, and the final migration task. Then, show the `psql` command and the final `SELECT` query that verified the data was moved successfully)...
     ```
 2.  Ran a final query to confirm that the data was successfully migrated.
     ```sql
