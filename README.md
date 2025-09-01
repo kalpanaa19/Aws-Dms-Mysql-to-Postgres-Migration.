@@ -110,4 +110,6 @@ This phase involved preparing the source database with sample data.
     ```sql
     -- This query should now return 1 row
     SELECT * FROM dms_sample.person WHERE last_name = 'User1';
-    ```
+    `<img width="2782" height="3840" alt="Untitled diagram _ Mermaid Chart-2025-09-01-183337" src="https://github.com/user-attachments/assets/927d8572-612c-4e79-9137-673c115c9386" />
+``
+    
