@@ -113,3 +113,9 @@ This phase involved preparing the source database with sample data.
     `<img width="2782" height="3840" alt="Untitled diagram _ Mermaid Chart-2025-09-01-183337" src="https://github.com/user-attachments/assets/927d8572-612c-4e79-9137-673c115c9386" />
 ``
     
+![bf063530-5cff-4912-b26a-03cd295d39c4](https://github.com/user-attachments/assets/188eca25-2ccc-41b4-9537-e667e60fb369)
+![bf063530-5cff-4912-b26a-03cd295d39c4](https://github.com/user-attachments/assets/dfc2924d-607f-4c7c-b
+![4e83cd4d-ac09-4774-9745-aaa83e76d896](https://github.com/user-attachments/assets/b37441c9-72a6-4e0a-be1d-600edabd8499)
+192-1e8c5d3347ca)[86979128-02f5-47b7-b989-24f044bc8a4c](https://github.com/user-attachments/assets/12a86ae4-b206-47fb-ab07-672bfb3!
+[17d5a0f0-1e8e-465a-8bea-208609e6018d](https://github.com/user-attachments/assets/41b4c634-3b8f-4009-ba2e-48f07b62a4ec)
+b6094)
