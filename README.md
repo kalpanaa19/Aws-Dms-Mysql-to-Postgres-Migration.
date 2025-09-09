@@ -40,16 +40,30 @@ This guide outlines the major steps taken to complete the migration.
 
     # Run the script (replace endpoint and use the correct password)
     mysql -h YOUR_MYSQL_ENDPOINT -P 3306 -u admin -p < install-rds.sql
-    ```
+    ``
+### Step 3: AWS SCT Configuration & Schema Conversion
 
-**Step 3: AWS SCT Configuration & Schema Conversion**
+**Goal:** To translate the MySQL database schema into a PostgreSQL-compatible format and apply it to the target RDS instance. This phase was performed using the AWS Schema Conversion Tool (SCT) on a local machine.
 
-1.  **Local Setup:** Installed the AWS Schema Conversion Tool (SCT) and the required MySQL & PostgreSQL JDBC drivers on a local machine.
-2.  **IAM User:** Created a dedicated IAM user (`sct-user`) with `AmazonRDSFullAccess` and `AWSSecretsManagerReadOnlyAccess` policies for programmatic access.
-3.  **SCT Project:** Created a new migration project in SCT, connecting to the source and target RDS databases.
-4.  **Conversion:**
-    * Right-clicked the `dms_sample` schema in the source panel and chose **"Convert schema"**.
-    * Right-clicked the converted schema in the target panel and chose **"Apply to database"** to create the empty table structure in PostgreSQL.
+**1. Local Setup:**
+* Installed the AWS Schema Conversion Tool (SCT) application.
+* Downloaded the required **MySQL Connector/J** and **PostgreSQL JDBC** drivers (`.jar` files).
+* Configured the driver paths within SCT's global settings to enable connectivity.
+
+**2. IAM User & SCT Profile:**
+* Created a dedicated IAM user (`sct-user`) to ensure the principle of least privilege.
+* Attached the `AmazonRDSFullAccess` and `AWSSecretsManagerReadOnlyAccess` AWS-managed policies to grant the necessary permissions for the project.
+* Generated programmatic access keys for the user and configured them in a new AWS Profile (`sct-profile`) within the SCT application for secure, credentialed access to AWS resources.
+
+**3. SCT Project Creation:**
+* Initiated a new database migration project within SCT.
+* Successfully established and tested connections from the local SCT application to both the source RDS MySQL and target RDS PostgreSQL database endpoints, validating the network and security configurations.
+
+**4. Conversion & Application:**
+* In the source database panel, the `dms_sample` schema was selected.
+* The **'Convert schema'** action was executed. SCT analyzed the source objects and automatically generated the equivalent schema for PostgreSQL.
+* The newly converted schema appeared in the target database panel. This schema was then selected, and the **'Apply to database'** action was executed.
+* This commanded SCT to connect to the target RDS instance and run all the necessary DDL statements to create the empty table structure, making it ready for data loading.
 
 **Step 4: AWS DMS Task Creation & Execution**
 
